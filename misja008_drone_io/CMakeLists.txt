@@ -9,12 +9,12 @@ project(misja008_drone_io)
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
 # Set default locations
-set(CL_OUTPUT_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/../cmake-build-Debug/output)
+set(CL_OUTPUT_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/../cmake-build-Release/output)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CL_OUTPUT_DIRECTORY})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CL_OUTPUT_DIRECTORY})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CL_OUTPUT_DIRECTORY})
 
-set(CONFIGURATION_NAME "Debug")
+set(CONFIGURATION_NAME "Release")
 
 # Projects
 
@@ -39,14 +39,11 @@ include_directories(
 
 
 # Compiler options
-add_definitions(-g)
-add_definitions(-O0)
+add_definitions(-O3)
 add_definitions(-std=c++14)
 add_definitions(-Wall)
-add_definitions(-DDEBUG)
 add_definitions(
-    -DDEBUG
-    -DDEBUG
+    -DNDEBUG
 )
 
 
@@ -68,7 +65,7 @@ set ( CXX_SRCS
 
 set_source_files_properties(
     ${CXX_SRCS} PROPERTIES COMPILE_FLAGS 
-    " -g -O0 -std=c++14 -Wall -DDEBUG")
+    " -O3 -std=c++14 -Wall")
 
 if(WIN32)
     enable_language(RC)
@@ -86,10 +83,10 @@ add_executable(misja008_drone_io ${RC_SRCS} ${CXX_SRCS} ${C_SRCS})
 target_link_libraries(misja008_drone_io ${LINK_OPTIONS})
 
 target_link_libraries(misja008_drone_io
-    sfml-graphics-d
-    sfml-window-d
-    sfml-system-d
-    sfml-network-d
+    sfml-graphics
+    sfml-window
+    sfml-system
+    sfml-network
 )
 
 
@@ -97,19 +94,19 @@ target_link_libraries(misja008_drone_io
 add_custom_command(
     TARGET misja008_drone_io
     POST_BUILD
-    COMMAND copy .\lib\SFML-2.4.2\bin\* .\Debug)
+    COMMAND copy .\\lib\\SFML-2.4.2\\bin\\* .\\Release)
 add_custom_command(
     TARGET misja008_drone_io
     POST_BUILD
-    COMMAND copy .\res\* .\Debug)
+    COMMAND copy .\\res\\* .\\Release)
 add_custom_command(
     TARGET misja008_drone_io
     POST_BUILD
-    COMMAND if not exist .\Debug\cache mkdir .\Debug\cache)
+    COMMAND if not exist .\\Release\\cache mkdir .\\Release\\cache)
 add_custom_command(
     TARGET misja008_drone_io
     POST_BUILD
-    COMMAND if not exist .\Debug\screen mkdir .\Debug\screen)
+    COMMAND if not exist .\\Release\\screen mkdir .\\Release\\screen)
 
 
 
