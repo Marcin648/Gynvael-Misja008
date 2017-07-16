@@ -15,7 +15,7 @@ Sprzyjały temu nazwy plików, które były unikalne.
 Posiadamy dane ze skanera przedstawiające odległość do ścian o rozdzielczości 10° oraz pozycję drona.
 Przydała się zwykła trygonometria.
 
-'''
+```
 for(unsigned int i = 0; i < distance.size(); i++){
 if(distance.at(i) == INFINITY){
 continue;
@@ -30,13 +30,14 @@ point.position = sf::Vector2f(position.x + x, position.y - y);
 
 points.push_back(point);
 }
-'''
+```
 
 Teraz starczy tylko to narysować.
 
 # Rysowanie
 Na początku próbowałem rysować za pomocą linii, co dało dość słaby efekt.
 ![](http://i.imgur.com/seUrZiJ.png)
+
 Następna próba z kropkami wypadła o wiele lepiej.
 ![](http://i.imgur.com/e7zJSra.png)
 
