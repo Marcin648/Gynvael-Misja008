@@ -1,5 +1,14 @@
+![](http://i.imgur.com/7AAKTjq.png)
 # misja008_drone_io
 CTF challenge http://gynvael.coldwind.pl/misja008_drone_io/
+
+# Sterowanie
+`↑` - Dron w górę
+`←` - Dron w lewo
+`→` - Dron w prawo
+`↓` - Dron w dół
+`e` - Autopilot (tylko przy ścianie)
+`s` - Zrzut ekranu
 
 # Misja
 http://gynvael.vexillium.org/ext/70809d8a8c51f6963a882f906dd21c18bd37428b_misja008.txt
